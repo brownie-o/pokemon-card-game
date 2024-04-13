@@ -317,24 +317,25 @@
             $('#left #pokemon img').eq(i).attr('src', './pokemon/Poke_Ball.webp');
             i++;
 
-            if (i === $('#left #pokemon img').length) {
-              clearInterval(leftBall);
-            }
+            // if (i === $('#left #pokemon img').length) {
+            //   clearInterval(leftBall);
+            // }
           }, 600);
 
           const rightBall = setInterval(() => {
             $('#right #pokemon img').eq(j).attr('src', './pokemon/Poke_Ball.webp');
             j++;
 
-            if (j === $('#right #pokemon img').length) {
-              clearInterval(rightBall);
-            }
+            // if (j === $('#right #pokemon img').length) {
+            //   clearInterval(rightBall);
+            // }
           }, 600);
 
           setTimeout(function () {
+            const P1Score = ($('#left #pokemon img').length) * 100
+            const P2Score = ($('#right #pokemon img').length) * 100
+            // console.log(P1Score, P2Score)
             if ($('#right #pokemon img').length > $('#left #pokemon img').length) {
-              const P1Score = ($('#left #pokemon img').length) * 100
-              const P2Score = ($('#right #pokemon img').length) * 100
               $('#right').css({ 'box-shadow': 'rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 15px 15px, rgba(240, 46, 170, 0.1) 20px 20px, rgba(240, 46, 170, 0.05) 25px 25px' })
 
               const winner = $('#player2').text().split(" ")[1]
@@ -364,7 +365,6 @@
         icon: 'success',
         html: `恭喜${winner} 獲得 ${score} 分<br>
                 ${loser} 請加油!`,
-        input: 'text',
         allowOutsideClick: false,
         showCloseButton: true,
       })
@@ -377,7 +377,6 @@
         icon: 'success',
         html: `恭喜兩位 獲得 ${score} 分<br>
         平手!`,
-        input: 'text',
         allowOutsideClick: false,
         showCloseButton: true,
       })
